@@ -1,17 +1,49 @@
 ---
+import { fetchAllFilsm, fetchPublishedReviews } from '../lib/microcms'
+import '../styles/global.css'
 
+const SITE_NAME = "徒然"
+
+const films = await fetchAllFilsm()
+const reviews = await fetchPublishedReviews()
+
+const reviewedFilmIds = new Set(reviews.map(r => r.film.id))
+
+const sorted = [...films].sort((a, b) => (a.releaseDate < b.releaseDate ? -1 : 1))
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{SITE_NAME} - 北野武映画レビュー</title>
+  </head>
+  <body class="page-home">
+    <main class="container">
+      <header class="header">
+        <h1 class="site-title">{SITE_NAME}</h1>
+        <p class="site-sub">北野武映画レビュー</p>
+      </header>
+
+      <ul class="film-list">
+        {sorted.map((f) => {
+          const hasReview = reviewedFilmIds.has(f.id);
+          return (
+            <li class="film-item">
+              {hasReview ? (
+                <a class="film-link" href={`/films/${f.slug}/`}>
+                  {f.title}
+                </a>
+              ) : (
+                <span class="film-disabled">
+                  {f.title}
+                  <span class="badge">準備中</span>
+                </span>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </main>
+  </body>
 </html>

@@ -1,43 +1,27 @@
-# Astro Starter Kit: Minimal
+# kitano_movie_reviews
 
-```sh
-pnpm create astro@latest -- --template minimal
+北野武監督作品のレビューを、静かに読める体験で提供。
+
+- Hosting: Cloudflare Pages
+- Generator: Astro (static-first / minimal JS)
+- Content: microCMS
+
+## What it does
+
+- トップページに北野武作品を一覧表示（`films`）
+- レビューが公開されている作品のみリンクが有効（`reviews`）
+- 作品ページのSEO titleは `{作品名} - 徒然レビュー` 形式
+
+## Requirements
+
+- Node.js (LTS recommended)
+- pnpm
+- microCMS `SERVICE_DOMAIN` and `API_KEY`
+
+## Setup
+
+```bash
+pnpm install
+cp .env.example .env
+pnpm dev
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

@@ -1,0 +1,53 @@
+---
+import { fetchPublishedReviews } from "../../lib/microcms";
+import "../../styles/global.css";
+
+export async function getStaticPaths() {
+  const reviews = await fetchPublishedReviews();
+
+  // 公開済みレビューだけページ生成
+  return reviews.map((r) => ({
+    params: { slug: r.film.slug },
+    props: { review: r },
+  }));
+}
+
+const { review } = Astro.props;
+
+const pageTitle = `${review.film.title} - 徒然レビュー`;
+const yearMatch = String(review.film.releaseDate ?? "").match(/\d{4}/);
+const releaseYear = yearMatch ? yearMatch[0] : "----";
+const normalizedBody = String(review.body ?? "")
+  .replace(/<br\s*\/?>/gi, "\n")
+  .replace(/<\/p>\s*<p[^>]*>/gi, "\n\n")
+  .replace(/<\/?p[^>]*>/gi, "")
+  .replace(/<[^>]+>/g, "")
+  .trim();
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+  </head>
+  <body class="page-film">
+    <main class="container">
+      <header class="header">
+        <a class="back" href="/">← 作品一覧</a>
+        <h1 class="film-title">{review.film.title}</h1>
+        <p class="release-meta">
+          <span class="meta-label">公開年</span>
+          <span class="meta-separator">:</span>
+          <span class="meta-year">{releaseYear}</span>
+        </p>
+      </header>
+
+      <article class="review">
+        <div class="review-body">{normalizedBody}</div>
+      </article>
+
+      {/* アフィはPhase2でOK */}
+    </main>
+  </body>
+</html>
