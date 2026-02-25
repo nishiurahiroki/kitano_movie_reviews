@@ -20,7 +20,7 @@
 ## Content Model (microCMS)
 
 - films: 全作品マスター（slug/title/releaseDate）
-- reviews: 公開済みレビュー（film参照 + 本文）
+- reviews: 公開済みレビュー（film参照 + リッチテキスト本文HTML）
 
 ## Functional Requirements
 
@@ -29,6 +29,7 @@ FR2. reviews が存在する films のみリンクを有効にする
 FR3. 作品ページは公開済み review のみ静的生成される  
 FR4. 作品ページのSEO titleは `{作品名} - 徒然レビュー` 形式  
 FR5. microCMS更新でリポジトリ更新なしに反映できる（=再ビルド経由）
+FR6. 作品ページのレビュー本文は、microCMSのリッチテキストHTMLをエスケープせず描画する
 
 ## Non-Functional Requirements
 

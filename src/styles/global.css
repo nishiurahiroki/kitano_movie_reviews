@@ -69,10 +69,22 @@ a:focus-visible {
   letter-spacing: 0.04em;
 }
 
-.site-sub {
+.description-text {
   margin: 0.45rem 0 0;
   color: var(--text-muted);
   font-size: 0.94rem;
+}
+
+.description {
+  margin: 0 0 1.7rem;
+}
+
+.description .description-text {
+  margin: 0 0 0.62rem;
+}
+
+.description .description-text:last-child {
+  margin-bottom: 0;
 }
 
 .film-list {
@@ -170,8 +182,39 @@ a:focus-visible {
   margin: 0;
   font-size: 1rem;
   line-height: 1.96;
-  white-space: pre-wrap;
   word-break: break-word;
+}
+
+.review-body > :first-child {
+  margin-top: 0;
+}
+
+.review-body > :last-child {
+  margin-bottom: 0;
+}
+
+.review-body p {
+  margin: 0 0 1.15rem;
+}
+
+.review-body h2,
+.review-body h3,
+.review-body h4 {
+  margin: 2rem 0 0.8rem;
+  line-height: 1.5;
+}
+
+.review-body ul,
+.review-body ol {
+  margin: 0 0 1.15rem;
+  padding-left: 1.4rem;
+}
+
+.review-body blockquote {
+  margin: 0 0 1.15rem;
+  padding: 0.15rem 0 0.15rem 0.9rem;
+  border-left: 3px solid var(--line);
+  color: color-mix(in srgb, var(--text) 82%, white 18%);
 }
 
 @media (min-width: 740px) {

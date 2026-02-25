@@ -9,6 +9,7 @@
 - `/films/:slug/`
   - 静的生成対象：公開済みreviewsから生成
   - データ：review + film（参照）
+  - 表示：review.body（リッチテキストHTML）をそのまま描画
 
 ## データ取得（ビルド時）
 

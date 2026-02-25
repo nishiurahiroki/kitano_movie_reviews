@@ -16,12 +16,7 @@ const { review } = Astro.props;
 const pageTitle = `${review.film.title} - 徒然レビュー`;
 const yearMatch = String(review.film.releaseDate ?? "").match(/\d{4}/);
 const releaseYear = yearMatch ? yearMatch[0] : "----";
-const normalizedBody = String(review.body ?? "")
-  .replace(/<br\s*\/?>/gi, "\n")
-  .replace(/<\/p>\s*<p[^>]*>/gi, "\n\n")
-  .replace(/<\/?p[^>]*>/gi, "")
-  .replace(/<[^>]+>/g, "")
-  .trim();
+const richBody = String(review.body ?? "").trim();
 ---
 
 <html lang="ja">
@@ -43,7 +38,7 @@ const normalizedBody = String(review.body ?? "")
       </header>
 
       <article class="review">
-        <div class="review-body">{normalizedBody}</div>
+        <div class="review-body" set:html={richBody}></div>
       </article>
 
     </main>
