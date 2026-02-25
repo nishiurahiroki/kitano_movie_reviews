@@ -5,7 +5,6 @@ import "../../styles/global.css";
 export async function getStaticPaths() {
   const reviews = await fetchPublishedReviews();
 
-  // 公開済みレビューだけページ生成
   return reviews.map((r) => ({
     params: { slug: r.film.slug },
     props: { review: r },
@@ -47,7 +46,6 @@ const normalizedBody = String(review.body ?? "")
         <div class="review-body">{normalizedBody}</div>
       </article>
 
-      {/* アフィはPhase2でOK */}
     </main>
   </body>
 </html>
