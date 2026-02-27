@@ -22,9 +22,6 @@ const sorted = [...films].sort((a, b) => (a.releaseDate < b.releaseDate ? -1 : 1
     <main class="container">
       <header class="header">
         <h1 class="site-title">{SITE_NAME}</h1>
-        <p class="header-link-wrap">
-          <a class="header-link" href="/about/">運営者について</a>
-        </p>
       </header>
 
       <section class="description" aria-label="このサイトについて">
@@ -58,6 +55,14 @@ const sorted = [...films].sort((a, b) => (a.releaseDate < b.releaseDate ? -1 : 1
           );
         })}
       </ul>
+
+      <footer class="site-footer" aria-label="フッター">
+        <nav class="footer-nav" aria-label="フッターリンク">
+          <a href="/about/">サイト運営者について</a>
+          <a href="/policy/">利用方針・免責事項</a>
+        </nav>
+        <p class="copyright">© {new Date().getFullYear()} 徒然</p>
+      </footer>
     </main>
   </body>
 </html>

@@ -69,15 +69,6 @@ a:focus-visible {
   letter-spacing: 0.04em;
 }
 
-.header-link-wrap {
-  margin: 0.5rem 0 0;
-}
-
-.header-link {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
 .description-text {
   margin: 0.45rem 0 0;
   color: var(--text-muted);
@@ -137,6 +128,30 @@ a:focus-visible {
   font-size: 0.72rem;
   letter-spacing: 0.03em;
   white-space: nowrap;
+}
+
+.site-footer {
+  margin-top: 1.5rem;
+  padding-top: 1.05rem;
+  border-top: 1px solid var(--line);
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+}
+
+.footer-nav a {
+  color: var(--text-muted);
+  font-size: 0.86rem;
+}
+
+.copyright {
+  margin: 0.52rem 0 0;
+  color: color-mix(in srgb, var(--text-muted) 86%, #becde0 14%);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
 }
 
 .back {
@@ -294,9 +309,66 @@ a:focus-visible {
   text-decoration-color: color-mix(in srgb, var(--accent-soft) 85%, transparent);
 }
 
+.policy-container {
+  --content-width: 46rem;
+}
+
+.policy-header {
+  margin-bottom: 1.2rem;
+}
+
+.policy-title {
+  margin: 0;
+  font-size: clamp(1.22rem, 3.7vw, 1.65rem);
+  line-height: 1.45;
+  letter-spacing: 0.03em;
+}
+
+.policy-lead {
+  margin: 0.72rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.93rem;
+}
+
+.policy-list {
+  display: grid;
+  gap: 0.72rem;
+}
+
+.policy-item {
+  padding: 0.92rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg) 62%, #17273e 38%) 0%,
+      color-mix(in srgb, var(--bg) 78%, #132339 22%) 100%
+    );
+}
+
+.policy-item h2 {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 560;
+  letter-spacing: 0.02em;
+}
+
+.policy-item p {
+  margin: 0.58rem 0 0;
+  color: color-mix(in srgb, var(--text) 88%, white 12%);
+  font-size: 0.93rem;
+  line-height: 1.86;
+}
+
 @media (min-width: 740px) {
   .container {
     width: min(var(--content-width), calc(100% - 3.4rem));
     padding-top: 2.6rem;
+  }
+
+  .site-footer {
+    margin-top: 1.9rem;
+    padding-top: 1.18rem;
   }
 }
