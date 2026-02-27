@@ -3,6 +3,10 @@ import { fetchAllFilsm, fetchPublishedReviews } from '../lib/microcms'
 import '../styles/global.css'
 
 const SITE_NAME = "徒然"
+const siteUrl = import.meta.env.PUBLIC_SITE_URL?.replace(/\/$/, "")
+const pageTitle = `${SITE_NAME} - 北野武映画レビュー`
+const pageDescription = "北野武監督作品のレビューを淡々と掲載していくサイト。公開済みレビュー作品のみ閲覧できます。"
+const canonicalUrl = siteUrl ? `${siteUrl}/` : undefined
 
 const films = await fetchAllFilsm()
 const reviews = await fetchPublishedReviews()
@@ -16,7 +20,23 @@ const sorted = [...films].sort((a, b) => (a.releaseDate < b.releaseDate ? -1 : 1
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>{SITE_NAME} - 北野武映画レビュー</title>
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#0a111c" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body class="page-home">
     <main class="container">

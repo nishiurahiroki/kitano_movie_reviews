@@ -2,6 +2,9 @@
 import '../styles/global.css'
 
 const pageTitle = '利用方針・免責事項 - 徒然'
+const pageDescription = '北野武映画レビューサイト「徒然」の利用方針と免責事項。'
+const siteUrl = import.meta.env.PUBLIC_SITE_URL?.replace(/\/$/, "")
+const canonicalUrl = siteUrl ? `${siteUrl}/policy/` : undefined
 ---
 
 <html lang="ja">
@@ -9,6 +12,20 @@ const pageTitle = '利用方針・免責事項 - 徒然'
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#0a111c" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body class="page-policy">
     <main class="container policy-container">

@@ -18,6 +18,7 @@
 - Node.js (LTS recommended)
 - pnpm
 - microCMS `SERVICE_DOMAIN` and `API_KEY`
+- `PUBLIC_SITE_URL` (例: `https://example.com`)
 
 ## Setup
 

@@ -13,10 +13,38 @@ export async function getStaticPaths() {
 
 const { review } = Astro.props;
 
+const SITE_NAME = "徒然";
+const siteUrl = import.meta.env.PUBLIC_SITE_URL?.replace(/\/$/, "");
 const pageTitle = `${review.film.title} - 徒然レビュー`;
+const plainBodyForMeta = String(review.body ?? "")
+  .replace(/<br\s*\/?>/gi, "\n")
+  .replace(/<\/p>\s*<p[^>]*>/gi, "\n\n")
+  .replace(/<[^>]+>/g, "")
+  .replace(/\s+/g, " ")
+  .trim();
+const pageDescription = plainBodyForMeta
+  ? `${review.film.title}のレビュー。${plainBodyForMeta.slice(0, 110)}`
+  : `${review.film.title}のレビュー。`;
+const canonicalUrl = siteUrl ? `${siteUrl}/films/${review.film.slug}/` : undefined;
 const yearMatch = String(review.film.releaseDate ?? "").match(/\d{4}/);
 const releaseYear = yearMatch ? yearMatch[0] : "----";
 const richBody = String(review.body ?? "").trim();
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Review",
+  inLanguage: "ja-JP",
+  name: `${review.film.title} レビュー`,
+  reviewBody: plainBodyForMeta,
+  itemReviewed: {
+    "@type": "Movie",
+    name: review.film.title,
+    datePublished: releaseYear === "----" ? undefined : releaseYear,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: SITE_NAME,
+  },
+};
 ---
 
 <html lang="ja">
@@ -24,6 +52,23 @@ const richBody = String(review.body ?? "").trim();
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#0a111c" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body class="page-film">
     <main class="container">
