@@ -1,0 +1,40 @@
+---
+import '../styles/global.css'
+
+const pageTitle = '運営者について - 徒然'
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+  </head>
+  <body class="page-about">
+    <main class="container about-container">
+      <header class="header about-header">
+        <a class="back" href="/">← 作品一覧</a>
+        <h1 class="about-title">サイト運営者について</h1>
+      </header>
+
+      <section class="about-stack" aria-label="運営者プロフィール">
+        <article class="about-card about-card-profile">
+          <p class="about-kicker">PROFILE</p>
+          <p class="about-text">
+            しがないIT従事者です。平成初期生まれ。北海道生まれ。高校生くらいから'キタニスト'になりました。
+          </p>
+        </article>
+
+        <article class="about-card about-card-links">
+          <p class="about-kicker">ACTIVITY</p>
+          <p class="about-link-label">活動</p>
+          <p class="about-link-wrap">
+            <a href="https://zenn.dev/nishiurahiroki" target="_blank" rel="noreferrer noopener">
+              zenn.dev/nishiurahiroki
+            </a>
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

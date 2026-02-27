@@ -69,6 +69,15 @@ a:focus-visible {
   letter-spacing: 0.04em;
 }
 
+.header-link-wrap {
+  margin: 0.5rem 0 0;
+}
+
+.header-link {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
 .description-text {
   margin: 0.45rem 0 0;
   color: var(--text-muted);
@@ -215,6 +224,74 @@ a:focus-visible {
   padding: 0.15rem 0 0.15rem 0.9rem;
   border-left: 3px solid var(--line);
   color: color-mix(in srgb, var(--text) 82%, white 18%);
+}
+
+.about-container {
+  --content-width: 44rem;
+}
+
+.about-header {
+  margin-bottom: 1.2rem;
+}
+
+.about-title {
+  margin: 0;
+  font-size: clamp(1.25rem, 3.9vw, 1.7rem);
+  line-height: 1.45;
+  letter-spacing: 0.03em;
+}
+
+.about-card {
+  padding: 1.1rem 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg) 56%, #18293f 44%) 0%,
+      color-mix(in srgb, var(--bg) 76%, #13233a 24%) 100%
+    );
+}
+
+.about-stack {
+  display: grid;
+  gap: 0.82rem;
+}
+
+.about-kicker {
+  margin: 0;
+  color: color-mix(in srgb, var(--text-muted) 82%, #c5d4e6 18%);
+  font-size: 0.72rem;
+  letter-spacing: 0.11em;
+}
+
+.about-text {
+  margin: 0.72rem 0 0;
+  color: color-mix(in srgb, var(--text) 90%, white 10%);
+  font-size: clamp(0.96rem, 2.5vw, 1.03rem);
+  line-height: 1.94;
+}
+
+.about-highlight {
+  color: #e7eef9;
+  font-weight: 580;
+}
+
+.about-link-label {
+  margin: 0.66rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+}
+
+.about-link-wrap {
+  margin: 0.14rem 0 0;
+}
+
+.about-link-wrap a {
+  color: #dce6f3;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-decoration-color: color-mix(in srgb, var(--accent-soft) 85%, transparent);
 }
 
 @media (min-width: 740px) {
