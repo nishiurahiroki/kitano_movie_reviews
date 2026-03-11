@@ -202,6 +202,30 @@ a:focus-visible {
   border-top: 1px solid var(--line);
 }
 
+.review-footer-nav {
+  margin-top: 1.8rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.back-bottom {
+  margin-bottom: 0;
+  padding: 0.45rem 0.78rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 82%, #15253a 18%);
+  color: color-mix(in srgb, var(--text-muted) 88%, #ccd9ea 12%);
+  font-size: 0.86rem;
+  text-decoration: none;
+  transition: border-color 160ms ease, color 160ms ease, background-color 160ms ease;
+}
+
+.back-bottom:hover {
+  border-color: color-mix(in srgb, var(--line) 68%, #5d7ea5 32%);
+  color: var(--text);
+  background: color-mix(in srgb, var(--bg) 70%, #1a2b41 30%);
+}
+
 .review-body {
   margin: 0;
   font-size: 1rem;

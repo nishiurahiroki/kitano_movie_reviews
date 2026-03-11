@@ -1,6 +1,6 @@
 # kitano_movie_reviews
 
-北野武監督作品のレビューを、静かに読める体験で提供。
+北野武監督作品のレビューを、静かに読める体験で提供する。
 
 - Hosting: Cloudflare Pages
 - Generator: Astro (static-first / minimal JS)
