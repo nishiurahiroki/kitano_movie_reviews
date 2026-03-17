@@ -1,14 +1,21 @@
 {
   "name": "electrical-event",
+  "packageManager": "pnpm@10.17.1",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node ./scripts/generate-ogp.mjs",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "typecheck": "astro check"
   },
   "dependencies": {
     "astro": "^5.17.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.8",
+    "@resvg/resvg-js": "^2.6.2"
   }
 }
