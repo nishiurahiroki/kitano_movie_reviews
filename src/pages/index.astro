@@ -1,4 +1,5 @@
 ---
+import GoogleAnalytics from '../components/GoogleAnalytics.astro'
 import { fetchAllFilsm, fetchPublishedReviews } from '../lib/microcms'
 import '../styles/global.css'
 
@@ -42,6 +43,7 @@ const sorted = [...films].sort((a, b) => (a.releaseDate < b.releaseDate ? -1 : 1
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest" />
+    <GoogleAnalytics />
   </head>
   <body class="page-home">
     <main class="container">

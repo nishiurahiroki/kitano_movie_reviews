@@ -1,4 +1,5 @@
 ---
+import GoogleAnalytics from '../components/GoogleAnalytics.astro'
 import '../styles/global.css'
 
 const pageTitle = '利用方針・免責事項 - 徒然'
@@ -26,6 +27,7 @@ const canonicalUrl = siteUrl ? `${siteUrl}/policy/` : undefined
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest" />
+    <GoogleAnalytics />
   </head>
   <body class="page-policy">
     <main class="container policy-container">

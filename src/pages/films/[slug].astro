@@ -1,4 +1,5 @@
 ---
+import GoogleAnalytics from "../../components/GoogleAnalytics.astro";
 import { fetchPublishedReviews } from "../../lib/microcms";
 import "../../styles/global.css";
 
@@ -91,6 +92,7 @@ const jsonLd = {
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest" />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <GoogleAnalytics />
   </head>
   <body class="page-film">
     <main class="container">
